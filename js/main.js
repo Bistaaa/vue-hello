@@ -1,21 +1,25 @@
 const { createApp } = Vue;
 
-function insertData() {
-  const nome = prompt("Inserisci il tuo nome");
-  const cognome = prompt("Inserisci il tuo cognome");
-  const eta = prompt("Inserisci la tua età");
-  const via = prompt("Inserisci la via dove abiti");
 
-  createApp({
+createApp({
     data() {
-      return {
-        nome: nome,
-        cognome: cognome,
-        eta: eta,
-        via: via,
-      };
+        return {
+            nome: '',
+            cognome: '',
+            eta: '',
+            via: '',
+        };
     },
-  }).mount("#mytext");
-}
+    methods: {
+        askData() {
+            this.nome = prompt();
+            this.cognome = prompt();
+            this.eta = prompt();
+            this.via = prompt();
+        }
+    },
+    mounted() {
+        this.askData()
+    }
+}).mount("#mytext");
 
-insertData();
